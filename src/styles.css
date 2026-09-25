@@ -1,0 +1,21 @@
+/*Css reset*/
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/*A toda la altura */
+html, body, app-root {
+  height: 100%;
+}
+
+/*Habilito flex dentro app-root*/
+app-root{
+  display: flex;
+  flex-direction: column;
+}
