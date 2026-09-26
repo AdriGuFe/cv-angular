@@ -1,13 +1,17 @@
 <header>
   <h1>{{ nombre }} {{ apellidos }}</h1>
   <h2>{{ puesto }}</h2>
-  <nav>
-    <a href="#main">Main</a>
-    <a href="#footer">Footer</a>
-  </nav>
 </header>
 <div class="main">
   <aside>
+   <img
+      [ngSrc]="fotoPerfil"
+      width="300"
+      height="300"
+      priority
+      alt="Foto de perfil de {{ nombre }} {{ apellidos }}"
+      class="foto-perfil"
+/>
     <h3>{{ contacto }}</h3>
     <p><b>Ciudad:</b> {{ ciudad }}</p>
     <p><b>Telefono:</b> {{ telefono }}</p>
@@ -39,8 +43,12 @@
     <p>{{ formacion }}</p>
     <p>{{ centroFormacion }}</p>
 
-    <h2>{{tecnologiasTitulo}}</h2>
-    <p>{{tecnologias}}</p>
+    <h2>{{ tecnologiasTitulo }}</h2>
+    <ul>
+      @for (tecnologia of tecnologias; track tecnologia) {
+      <li>{{ tecnologia }}</li>
+      }
+    </ul>
   </main>
 </div>
 

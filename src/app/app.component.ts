@@ -1,10 +1,11 @@
 import { DatePipe } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { NgOptimizedImage } from '@angular/common';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, DatePipe],
+  imports: [RouterOutlet, DatePipe, NgOptimizedImage],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
@@ -51,4 +52,7 @@ export class AppComponent {
 
   //Fecha actual
   fecha = new Date();
+
+  //Foto
+  fotoPerfil = '/fotoPerfil.jpg';
 }
