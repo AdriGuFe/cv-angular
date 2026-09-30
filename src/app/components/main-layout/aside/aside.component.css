@@ -1,0 +1,19 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  background-color: #dbe4e9;
+  width: 20%;
+  padding: 20px;
+  flex-shrink: 0;
+  height: 100%;
+}
+
+h3 {
+  margin-top: 15px;
+  color: #2c3e50;
+}
+
+p {
+  margin-bottom: 8px;
+  font-size: 14px;
+}

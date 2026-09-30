@@ -1,21 +1,12 @@
-/*Css reset*/
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-*, *::before, *::after {
-  box-sizing: border-box;
-}
-
-/*A toda la altura */
-html, body, app-root {
+html, body {
   height: 100%;
-}
-
-/*Habilito flex dentro app-root*/
-app-root{
-  display: flex;
-  flex-direction: column;
+  font-family: Arial, sans-serif;
+  background-color: #f2f2f2;
+  color: #333;
 }
