@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, input, output } from '@angular/core';
 import { MainComponent } from './main/main.component';
 import { AsideComponent } from './aside/aside.component';
 
@@ -9,5 +9,9 @@ import { AsideComponent } from './aside/aside.component';
   styleUrl: './main-layout.component.css'
 })
 export class MainLayoutComponent {
-
+  seccionActual = input<string>('resumen');
+  seccionCercana = output<string>();
+  manejarSeleccion(seccion: string): void {
+    this.seccionCercana.emit(seccion);
+  }
 }

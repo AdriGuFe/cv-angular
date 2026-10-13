@@ -1,7 +1,6 @@
-import { DatePipe } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { NgOptimizedImage } from '@angular/common';
+import { DatePipe, NgOptimizedImage } from '@angular/common';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { MainLayoutComponent } from './components/main-layout/main-layout.component';
@@ -13,5 +12,8 @@ import { MainLayoutComponent } from './components/main-layout/main-layout.compon
   styleUrl: './app.component.css',
 })
 export class AppComponent {
-
+  seccionActiva: string = 'resumen';
+  cambiarSeccion(nuevaSeccion: string): void {
+    this.seccionActiva = nuevaSeccion;
+  }
 }

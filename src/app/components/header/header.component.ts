@@ -8,7 +8,6 @@ import { Component } from '@angular/core';
 })
 export class HeaderComponent {
   title = 'cv';
-  //Informacion personal
   nombre = 'Adrian';
   apellidos = 'Gutierrez Fernandez';
   puesto = 'Desarrollador de aplicaciones multiplataforma';

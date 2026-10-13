@@ -1,4 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, input } from '@angular/core';
+
+export interface Experiencia {
+  id: number;
+  empresa: string;
+  puesto: string;
+  periodo: string;
+  descripcion: string;
+}
 
 @Component({
   selector: 'app-main',
@@ -7,30 +15,34 @@ import { Component } from '@angular/core';
   styleUrl: './main.component.css',
 })
 export class MainComponent {
+  seccion = input<string>('resumen');
+
   sobreMiTitulo = 'SOBRE MÍ';
   sobreMi =
     'Estudiante de segundo año de DAM. Apasionado por las nuevas tecnologías y amante de la informática';
 
-  //Experiencia
   experienciaTitulo = 'EXPERIENCIA LABORAL';
-  //Experiencia 1
-  empresa1 = 'Accenture';
-  puesto1 = 'Alumno en prácticas';
-  periodo1 = 'Mayo 2026 - Junio 2026';
-  descripcion1 =
-    'Alumno en proceso de prácticas, adquiriendo conocimientos sobre desarrollo de software a través de cursos, charlas y asesoramiento profesional';
-  //Experiencia 2
-  empresa2 = 'Decathlon';
-  puesto2 = 'Vendedor deportivo';
-  periodo2 = 'Abril 2025 - Agosto 2025 y Junio 2026 - Agosto 2026';
-  descripcion2 =
-    'Vendedor y asesor de material deportivo en la sección de deportes de montaña y camping. Control de stock y cobro en cajas.';
-  //Formacion
+  experiencias: Experiencia[] = [
+    {
+      id: 1,
+      empresa: 'Accenture',
+      puesto: 'Alumno en prácticas',
+      periodo: 'Mayo 2026 - Junio 2026',
+      descripcion: 'Alumno en proceso de prácticas, adquiriendo conocimientos sobre desarrollo de software a través de cursos, charlas y asesoramiento profesional'
+    },
+    {
+      id: 2,
+      empresa: 'Decathlon',
+      puesto: 'Vendedor deportivo',
+      periodo: 'Abril 2025 - Agosto 2025 y Junio 2026 - Agosto 2026',
+      descripcion: 'Vendedor y asesor de material deportivo en la sección de deportes de montaña y camping. Control de stock y cobro en cajas.'
+    }
+  ];
+
   formacionTitulo = 'FORMACIÓN';
-  formacion =
-    'Estudiante Grado Superior Desarrollo de Aplicaciones Multiplataforma';
+  formacion = 'Estudiante Grado Superior Desarrollo de Aplicaciones Multiplataforma';
   centroFormacion = 'CPIFP Alan Turing';
-  //Tecnologias
+
   tecnologiasTitulo = 'TECNOLOGÍAS';
   tecnologias = [
     'HTML',
@@ -42,4 +54,9 @@ export class MainComponent {
     'Python',
     'SQL',
   ];
+  tecnologiaSeleccionada: string | null = null;
+
+  seleccionarTecnologia(tech: string): void {
+    this.tecnologiaSeleccionada = tech;
+  }
 }

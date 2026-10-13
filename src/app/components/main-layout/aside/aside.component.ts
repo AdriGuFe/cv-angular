@@ -1,5 +1,5 @@
 import { NgOptimizedImage } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, output } from '@angular/core';
 
 @Component({
   selector: 'app-aside',
@@ -17,4 +17,16 @@ export class AsideComponent {
   nombre = 'Adrian';
   apellidos = 'Gutierrez Fernandez';
   fotoPerfil = '/../../fotoPerfil.jpg';
+
+  mostrarContacto: boolean = true;
+  
+  seccionSeleccionada = output<string>();
+
+  toggleContacto(): void {
+    this.mostrarContacto = !this.mostrarContacto;
+  }
+
+  seleccionar(seccion: string): void {
+    this.seccionSeleccionada.emit(seccion);
+  }
 }

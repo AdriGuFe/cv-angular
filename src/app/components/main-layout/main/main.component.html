@@ -1,24 +1,48 @@
-<h2>{{ sobreMiTitulo }}</h2>
-    <p>{{ sobreMi }}</p>
+<main class="main-content">
+  @switch (seccion()) {
+    @case ('resumen') {
+      <section>
+        <h2>{{ sobreMiTitulo }}</h2>
+        <p>{{ sobreMi }}</p>
 
-    <h2>{{ experienciaTitulo }}</h2>
-    <ul>
-      <h3>{{ empresa1 }}</h3>
-      <li>{{ puesto1 }}</li>
-      <li>{{ periodo1 }}</li>
-      <li>{{ descripcion1 }}</li>
-    </ul>
+        <h3>{{ tecnologiasTitulo }}</h3>
+        <div class="tech-container">
+          @for (tech of tecnologias; track tech) {
+            <button (click)="seleccionarTecnologia(tech)">{{ tech }}</button>
+          }
+        </div>
 
-    <ul>
-      <h3>{{ empresa2 }}</h3>
-      <li>{{ puesto2 }}</li>
-      <li>{{ periodo2 }}</li>
-      <li>{{ descripcion2 }}</li>
-    </ul>
-
-    <h2>{{ formacionTitulo }}</h2>
-    <p>{{ formacion }}</p>
-    <p>{{ centroFormacion }}</p>
-
-    <h2>{{tecnologiasTitulo}}</h2>
-    <p>{{tecnologias}}</p>
+        @if (tecnologiaSeleccionada) {
+          <p class="tech-alert">Tecnología seleccionada: <strong>{{ tecnologiaSeleccionada }}</strong></p>
+        }
+      </section>
+    }
+    @case ('experiencia') {
+      <section>
+        <h2>{{ experienciaTitulo }}</h2>
+        @for (item of experiencias; track item.id) {
+          <div class="exp-card">
+            <h3>{{ item.puesto }} - {{ item.empresa }}</h3>
+            <small>{{ item.periodo }}</small>
+            <p>{{ item.descripcion }}</p>
+          </div>
+        } @empty {
+          <p>Todavía no se ha añadido experiencia profesional.</p>
+        }
+      </section>
+    }
+    @case ('formacion') {
+      <section>
+        <h2>{{ formacionTitulo }}</h2>
+        <p>{{ formacion }}</p>
+        <p><strong>Centro:</strong> {{ centroFormacion }}</p>
+      </section>
+    }
+    @default {
+      <section>
+        <h2>{{ sobreMiTitulo }}</h2>
+        <p>{{ sobreMi }}</p>
+      </section>
+    }
+  }
+</main>

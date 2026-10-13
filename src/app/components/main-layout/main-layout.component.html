@@ -1,2 +1,2 @@
-<app-aside></app-aside>
-<app-main></app-main>
+<app-aside (seccionSeleccionada)="manejarSeleccion($event)"></app-aside>
+<app-main [seccion]="seccionActual()"></app-main>

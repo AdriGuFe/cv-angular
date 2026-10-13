@@ -6,9 +6,24 @@
       alt="Foto de perfil de {{ nombre }} {{ apellidos }}"
       class="foto-perfil"
 />
-<h3>{{ contacto }}</h3>
+
+<nav class="nav-secciones">
+  <button (click)="seleccionar('resumen')">Resumen</button>
+  <button (click)="seleccionar('experiencia')">Experiencia</button>
+  <button (click)="seleccionar('formacion')">Formación</button>
+</nav>
+
+<button (click)="toggleContacto()" class="btn-toggle">
+  {{ mostrarContacto ? 'Ocultar' : 'Mostrar' }} datos de contacto
+</button>
+
+@if (mostrarContacto) {
+  <div class="contacto-info">
+    <h3>{{ contacto }}</h3>
     <p><b>Ciudad:</b> {{ ciudad }}</p>
     <p><b>Telefono:</b> {{ telefono }}</p>
     <p><b>Email:</b> {{ email }}</p>
     <p><b>GitHub:</b> {{ github }}</p>
     <p><b>Idiomas:</b> {{ idiomas }}</p>
+  </div>
+}
